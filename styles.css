@@ -8,11 +8,12 @@ body {
     flex-wrap: wrap;
     background-color: blueviolet;
     width: 400px;
+    height: 400px;
 }
 
 .newbox {
-    width: 100px;
-    height: 100px;
+    height: auto;
+    width: auto;
     background-color: aqua;
 }
 

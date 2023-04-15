@@ -8,24 +8,47 @@ function addBox() {
 }
 
 let boxCount = 0;
+let bigBoxDimension = 400;
+let oneSide;
+let boxSize;
 
-while (boxCount < 16) {
-    addBox();
-    boxCount++;
+function setDimension() {
+    oneSide = boxCount / 4;
+    boxSize = bigBoxDimension / oneSide;
+    boxToChange.style.height = `${boxSize}px`;
+    boxToChange.style.width = `${boxSize}px`;
 }
 
-const boxToChange = document.getElementsByClassName("newbox");
-function hoverClass() {
-    for (let i = 0; i < boxToChange.length; i++) {
-        boxToChange[i].classList.add("hovereffect");
+function addMoreBoxes(n) {
+    while (boxCount < n) {
+        addBox();
+        setDimension();
+        boxCount++;
     }
 }
 
-function removeHover() {
-    for (let i = 0; i < boxToChange.length; i++) {
-        boxToChange[i].classList.remove("hovereffect");
-    }
+let defaultBoxes = 16;
+addMoreBoxes(defaultBoxes);
+
+let boxToChange = document.getElementsByClassName("newbox");
+function changeColor(e) {
+    e.target.classList.add("hovereffect");
 }
 
-boxToChange.addEventListener("mouseover", hoverClass());
-boxToChange.addEventListener("mouseout", removeHover());)
+function addHoverClass() {
+    for (let i = 0; i < boxToChange.length; i++) {
+        boxToChange[i].addEventListener("mouseover", changeColor);
+    };
+}
+
+let gridButton = document.getElementById("grid-size");
+
+let gridAnswer;
+function changeGrid() {
+    gridAnswer = prompt("How big should your grid be", "Input a number that is 100 or less");
+    addMoreBoxes(gridAnswer);
+    addHoverClass();
+}
+
+gridButton.addEventListener("click", changeGrid);
+
