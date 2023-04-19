@@ -12,9 +12,14 @@ body {
 }
 
 .newbox {
-    flex: 1 1 0;
+    flex: 0 0 auto;
     background-color: aqua;
-    border: 1px solid black;
+}
+
+.newbox:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
 }
 
 .hovereffect {

@@ -1,4 +1,6 @@
 const boxHome = document.getElementById("grid");
+const gridButton = document.getElementById("grid-size");
+const boxToChange = document.getElementsByClassName("newbox");
 let newDiv;
 let boxNumber;
 let boxCount = 0;
@@ -7,13 +9,50 @@ let boxSize;
 
 function getGrid() {
     boxNumber = prompt("How big a grid?", "Select a number less than 100");
+    return boxNumber;
 }
 
-function calculateBoxSize() {
+gridButton.addEventListener("click", getGrid);
+
+function addBox() {
+    newDiv = document.createElement("div");
+    const boxHome = document.getElementById("grid");
+    newDiv.classList.add("newbox");
+    boxHome.appendChild(newDiv);
+} 
+
+function changeColor(e) {
+    e.target.classList.add("hovereffect");
 }
 
+function addHoverClass() {
+    for (let i = 0; i < boxToChange.length; i++) {
+        boxToChange[i].addEventListener("mouseover", changeColor);
+    };
+}
 
-function totalBoxGrid() {
+function getBoxSize(n) {
+    let boxDimension = document.getElementById("grid").clientWidth / n;
+    for (let i = 0; i < boxToChange.length; i++) {
+        boxToChange[i].setAttribute("style",`width:${boxDimension}px`,`height:${boxDimension}px`);
+    }
+}
+
+function displayGrid() {
+    let square = boxNumber * boxNumber;
+    while (boxCount < square) {
+        addBox();
+        getBoxSize(boxNumber);
+        addHoverClass();
+        boxCount++;
+    };
+}
+
+gridButton.addEventListener("click", displayGrid);
+
+
+
+/* function totalBoxGrid() {
     totalBoxes = boxNumber * boxNumber;
     boxSize = (400 / boxNumber);
 
@@ -32,15 +71,6 @@ let gridButton = document.getElementById("grid-size");
 gridButton.addEventListener("click", getGrid);
 gridButton.addEventListener("click", totalBoxGrid);
 
-
-function addBox() {
-    newDiv = document.createElement("div");
-    const boxHome = document.getElementById("grid");
-    newDiv.classList.add("newbox");
-    boxHome.appendChild(newDiv);
-}
-/* 
-
 let gridDimension = parseInt(document.getElementById("grid-size").style.width,10);
 function setDimension(n) {
     let boxDimension = gridDimension / n;
@@ -57,16 +87,6 @@ function addMoreBoxes(n) {
 
 let defaultBoxes = 16;
 addMoreBoxes(defaultBoxes);
-
-function changeColor(e) {
-    e.target.classList.add("hovereffect");
-}
-
-function addHoverClass() {
-    for (let i = 0; i < boxToChange.length; i++) {
-        boxToChange[i].addEventListener("mouseover", changeColor);
-    };
-}
 
 let gridAnswer;
 function changeGrid(e) {
