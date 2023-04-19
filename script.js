@@ -9,8 +9,12 @@ let totalBoxes;
 let boxSize;
 
 function getGrid() {
-    boxNumber = prompt("How big a grid?", "Select a number less than 100");
-    return boxNumber;
+    boxNumber = prompt("How big a grid?", "Select a number between 1 and 50");
+    if (boxNumber > 50 || boxNumber < 1) {
+        boxNumber = prompt("Please choose a valid number");
+    } else {
+        return boxNumber;
+    }
 }
 
 gridButton.addEventListener("click", getGrid);
@@ -58,8 +62,6 @@ function resetGrid() {
 }
 
 resetButton.addEventListener("click", resetGrid);
-
-
 
 
 
