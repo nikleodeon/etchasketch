@@ -1,5 +1,6 @@
 const boxHome = document.getElementById("grid");
 const gridButton = document.getElementById("grid-size");
+const resetButton = document.getElementById("reset");
 const boxToChange = document.getElementsByClassName("newbox");
 let newDiv;
 let boxNumber;
@@ -49,6 +50,16 @@ function displayGrid() {
 }
 
 gridButton.addEventListener("click", displayGrid);
+
+function resetGrid() {
+    for (let i = 0; i < boxToChange.length; i++) {
+        boxToChange[i].classList.remove("hovereffect");
+    }
+}
+
+resetButton.addEventListener("click", resetGrid);
+
+
 
 
 

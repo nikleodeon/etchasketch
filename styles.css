@@ -1,19 +1,40 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #E9C46A;
+    color: #264653;
+    text-align: center;
+    font-size: 12px;
+}
+
+h1 {
+    font-size: 5em;
+    margin: 0;
 }
     
 #grid {
     display: flex;
     flex-wrap: wrap;
-    background-color: blueviolet;
+    background-color: #2A9D8F;
     width: 400px;
     height: 400px;
+    margin: 10px auto 0;
+    border: 10px solid #FFF;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #E76F51;
+    color: #FFF;
+    border: none;
+    padding: 20px;
+    font-size: 2em;
+    margin-bottom: 100px;
 }
 
 .newbox {
     flex: 0 0 auto;
-    background-color: aqua;
+    background-color: #2A9D8F;
 }
 
 .newbox:before {
@@ -23,5 +44,5 @@ body {
 }
 
 .hovereffect {
-    background-color: azure;
+    background-color: #F4A261;
 }
