@@ -5,8 +5,6 @@ const boxToChange = document.getElementsByClassName("newbox");
 let newDiv;
 let boxNumber;
 let boxCount = 0;
-let totalBoxes;
-let boxSize;
 
 function getGrid() {
     boxNumber = prompt("How big a grid?", "Select a number between 1 and 50");
@@ -62,50 +60,3 @@ function resetGrid() {
 }
 
 resetButton.addEventListener("click", resetGrid);
-
-
-
-/* function totalBoxGrid() {
-    totalBoxes = boxNumber * boxNumber;
-    boxSize = (400 / boxNumber);
-
-    while (boxCount < totalBoxes) {
-        addBox();
-        boxCount++;
-    };
-    let divToSize = document.getElementsByClassName("newbox");
-    for (i = 0; i < divToSize.length; i++) {
-        divToSize[i].style.width = `${boxSize}px`;
-        divToSize[i].style.height = `${boxSize}px`;
-    }
-}
-
-let gridButton = document.getElementById("grid-size");
-gridButton.addEventListener("click", getGrid);
-gridButton.addEventListener("click", totalBoxGrid);
-
-let gridDimension = parseInt(document.getElementById("grid-size").style.width,10);
-function setDimension(n) {
-    let boxDimension = gridDimension / n;
-    console.log(boxDimension);
-}
-
-function addMoreBoxes(n) {
-    while (boxCount < n) {
-        addBox();
-        addHoverClass();
-        boxCount++;
-    };
-}
-
-let defaultBoxes = 16;
-addMoreBoxes(defaultBoxes);
-
-let gridAnswer;
-function changeGrid(e) {
-    gridAnswer = prompt("How big should your grid be", "Input a number that is 100 or less");
-    addMoreBoxes(gridAnswer);
-    addHoverClass();
-}
-
-gridButton.addEventListener("click", changeGrid); */

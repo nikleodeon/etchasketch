@@ -23,13 +23,20 @@ h1 {
     border-radius: 5px;
 }
 
+.buttons {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
 button {
     background-color: #E76F51;
     color: #FFF;
     border: none;
     padding: 20px;
     font-size: 2em;
-    margin-bottom: 100px;
+    margin: 0 5px;
 }
 
 .newbox {
